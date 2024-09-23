@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import SharedLayout from './components/SharedLayout';
+import AuthLayout from './components/layouts/AuthLayout';
+import SharedLayout from './components/layouts/SharedLayout';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -16,7 +17,7 @@ const Router = () => {
     },
     {
       path: '/auth',
-      element: <SharedLayout />,
+      element: <AuthLayout />,
     },
   ]);
 
