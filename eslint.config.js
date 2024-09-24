@@ -14,6 +14,7 @@ export default tseslint.config(
       'public',
       'node_modules',
       'yarn.lock',
+      // 'src/components/ui',
     ],
   },
   {
@@ -37,6 +38,9 @@ export default tseslint.config(
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'no-console': 'error',
+      // 'react/prop-types': 'off', // Disable
+      '@typescript-eslint/no-empty-object-type': 'off', // Disable
+      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
   {
@@ -48,6 +52,7 @@ export default tseslint.config(
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
+      'react/prop-types': 'off', // Disable
     },
   },
   {
