@@ -1,7 +1,7 @@
+@import '@fontsource/inter/400.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '@fontsource/inter/variable.css';
 
 :root {
   --background: #f7f8fa;

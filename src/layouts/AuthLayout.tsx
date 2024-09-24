@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import Logo from '@/assets/icons/logo-icon.svg';
+import { Toaster } from '@/components/ui/toaster';
 import Providers from '@/Providers';
 
 const AuthLayout = () => {
@@ -12,6 +13,7 @@ const AuthLayout = () => {
       </header>
       <main className="flex-grow overflow-hidden text-text">
         <Outlet />
+        <Toaster />
       </main>
     </Providers>
   );

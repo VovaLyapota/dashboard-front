@@ -58,12 +58,14 @@ export default {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))',
         },
-
+        // custom colors
+        background: '#F7F8FA',
+        overlay: '#1D1E214D',
+        gray: { icon: '#DCDDDF' },
         text: {
           DEFAULT: '#1D1E21',
           foreground: '#1D1E2166',
         },
-        overlay: '#1D1E214D',
       },
     },
   },

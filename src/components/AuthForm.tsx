@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { ROUTES } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { ErrorResponse } from '@/interfaces/ErrorResponse';
 import { User } from '@/interfaces/User';
@@ -50,7 +51,7 @@ const AuthForm = () => {
     },
     onSuccess: (data) => {
       setUser(data);
-      navigate('/dashboard');
+      navigate(ROUTES.DASHBOARD);
     },
     onError: ({ response }: AxiosError<ErrorResponse>) => {
       toast({
