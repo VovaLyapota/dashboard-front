@@ -27,7 +27,7 @@ const MobileNav = ({
         >
           {/* nav */}
           <motion.nav
-            className="h-screen w-20 bg-background p-5 z-10 flex flex-col items-center"
+            className="h-screen w-20 md:w-[84px] bg-background p-5 z-10 flex flex-col items-center"
             initial={{ translateX: -90 }}
             animate={{ translateX: 0 }}
             exit={{ translateX: -90, transition: { duration: 0.1 } }}

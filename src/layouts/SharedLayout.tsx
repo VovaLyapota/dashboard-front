@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import Logo from '@/assets/icons/second_logo-icon.svg';
+import LogoutButton from '@/components/LogoutButton';
 import MobileNav from '@/components/MobileNav';
+import Sidebar from '@/components/Sidebar';
 import { ROUTES } from '@/constants';
 import Providers from '@/Providers';
 import useUserStore from '@/stores/userStore';
@@ -23,26 +25,28 @@ const SharedLayout = () => {
 
   return (
     <Providers>
-      <header className="flex gap-5 items-center text-text px-5 py-4 md:px-8 xl:px-24 xl:py-7 border-b-[1px] border-gray-200">
+      <header className="flex gap-5 md:gap-4 items-center text-text px-5 py-4 md:px-8 xl:px-24 xl:py-7 border-b border-gray-200">
         <AlignJustify
           className="w-8 h-8 lg:hidden"
           onClick={() => setIsVisible(true)}
         />
         <Link
           to={ROUTES.DASHBOARD}
-          className="flex items-center gap-5 cursor-pointer"
+          className="flex items-center gap-5 md:gap-8 lg:gap-14 cursor-pointer"
         >
-          <Logo className="h-8 w-8" />
+          <Logo className="h-8 w-8 md:h-10 md:w-10" />
           <div>
-            <p className="text-xl font-semibold">Medicine store</p>
+            <p className="text-xl font-semibold md:text-2xl">Medicine store</p>
             <p className="text-xs text-text-foreground">
               {routeNames[pathname as keyof typeof routeNames]} | {email}
             </p>
           </div>
         </Link>
+        <LogoutButton className="hidden lg:flex ml-auto" />
       </header>
       <MobileNav isVisible={isVisible} onClose={() => setIsVisible(false)} />
-      <main className="text-text flex-grow overflow-hidden">
+      <main className="text-text flex-grow overflow-hidden flex">
+        <Sidebar />
         <Outlet />
       </main>
     </Providers>
