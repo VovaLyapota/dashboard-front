@@ -5,7 +5,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import Logo from '@/assets/icons/second_logo-icon.svg';
 import LogoutButton from '@/components/LogoutButton';
 import MobileNav from '@/components/MobileNav';
-import Sidebar from '@/components/Sidebar';
+import NavLinks from '@/components/NavLinks';
 import { ROUTES } from '@/constants';
 import Providers from '@/Providers';
 import useUserStore from '@/stores/userStore';
@@ -46,7 +46,9 @@ const SharedLayout = () => {
       </header>
       <MobileNav isVisible={isVisible} onClose={() => setIsVisible(false)} />
       <main className="text-text flex-grow overflow-hidden flex">
-        <Sidebar />
+        <nav className="hidden lg:flex w-20 border-r border-gray-200 py-10 px-4">
+          <NavLinks />
+        </nav>
         <Outlet />
       </main>
     </Providers>
