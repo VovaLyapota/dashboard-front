@@ -8,9 +8,9 @@ const AuthLayout = () => {
     <Providers>
       <header className="flex items-center gap-4 px-5 py-6 md:px-8 xl:px-24 xl:py-7">
         <Logo className="h-11 w-11" />
-        <p className="text-xl font-semibold">E-pharmacy</p>
+        <p className="text-xl font-semibold text-text">E-pharmacy</p>
       </header>
-      <main className="flex-grow overflow-hidden">
+      <main className="flex-grow overflow-hidden text-text">
         <Outlet />
       </main>
     </Providers>
