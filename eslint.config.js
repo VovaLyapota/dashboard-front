@@ -38,21 +38,20 @@ export default tseslint.config(
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'no-console': 'error',
-      // 'react/prop-types': 'off', // Disable
       '@typescript-eslint/no-empty-object-type': 'off', // Disable
       '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
   {
     // Set the react version
-    settings: { react: { version: '18.3.1' } },
+    settings: { react: { version: 'detect' } },
     plugins: {
       react,
     },
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
-      'react/prop-types': 'off', // Disable
+      'react/prop-types': 'off',
     },
   },
   {
