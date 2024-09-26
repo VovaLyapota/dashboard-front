@@ -4,6 +4,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import Logo from '@/assets/icons/second_logo-icon.svg';
 import LogoutButton from '@/components/LogoutButton';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import MobileNav from '@/components/MobileNav';
 import NavLinks from '@/components/NavLinks';
 import { ROUTES } from '@/constants';
@@ -49,7 +50,9 @@ const SharedLayout = () => {
         <nav className="hidden lg:flex w-20 border-r border-gray-200 py-10 px-4">
           <NavLinks />
         </nav>
-        <Outlet />
+        <MaxWidthWrapper className="py-5 md:px-8 lg:px-10">
+          <Outlet />
+        </MaxWidthWrapper>
       </main>
     </Providers>
   );

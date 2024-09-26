@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios, { AxiosError } from 'axios';
+import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
@@ -18,6 +19,7 @@ import { ROUTES } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { ErrorResponse } from '@/interfaces/ErrorResponse';
 import { User } from '@/interfaces/User';
+import { cn } from '@/lib/utils';
 import { LoginPropsType, loginSchema } from '@/schemas/loginSchema';
 import useUserStore from '@/stores/userStore';
 
@@ -39,7 +41,7 @@ const AuthForm = () => {
     },
   });
 
-  const { mutate: authUser } = useMutation({
+  const { mutate: authUser, isLoading } = useMutation({
     mutationKey: ['auth-user'],
     mutationFn: async (credential: LoginPropsType) => {
       const { data: user } = await axios.post(
@@ -106,8 +108,18 @@ const AuthForm = () => {
             </FormItem>
           )}
         />
-        <Button className="mt-10 h-11 w-full rounded-full" type="submit">
-          {auth === 'signup' ? 'Sign up' : 'Log in'}
+        <Button
+          className="mt-10 h-11 w-full rounded-full flex gap-3"
+          type="submit"
+          disabled={isLoading}
+        >
+          {!isLoading && (auth === 'signup' ? 'Sign up' : 'Log in')}
+          {isLoading && (auth === 'signup' ? 'Signing up' : 'Logging in')}
+          <Loader2
+            className={cn('w-5 h-5 animate-spin', {
+              hidden: !isLoading,
+            })}
+          />
         </Button>
         <Button
           type="button"
