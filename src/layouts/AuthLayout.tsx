@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import Logo from '@/assets/icons/logo-icon.svg';
 import { Toaster } from '@/components/ui/toaster';
-import Providers from '@/Providers';
+import Providers from '@/providers';
 
 const AuthLayout = () => {
   return (

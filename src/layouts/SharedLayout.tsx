@@ -8,7 +8,7 @@ import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import MobileNav from '@/components/MobileNav';
 import NavLinks from '@/components/NavLinks';
 import { ROUTES } from '@/constants';
-import Providers from '@/Providers';
+import Providers from '@/providers';
 import useUserStore from '@/stores/userStore';
 
 const routeNames = {

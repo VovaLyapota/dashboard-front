@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+import { logoutUser } from '@/api/auth';
 import LogoutIcon from '@/assets/icons/exit-icon.svg';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';
@@ -11,13 +12,16 @@ const LogoutButton = ({ className }: { className?: string }) => {
   const { deleteUser } = useUserStore();
   const navigate = useNavigate();
 
+  const onLogout = async () => {
+    await logoutUser();
+    deleteUser();
+    navigate(ROUTES.AUTH);
+  };
+
   return (
     <Button
       className={cn('w-10 h-10 p-0 rounded-full', className)}
-      onClick={() => {
-        deleteUser();
-        navigate(ROUTES.AUTH);
-      }}
+      onClick={onLogout}
     >
       <LogoutIcon className="w-4 h-4" />
     </Button>

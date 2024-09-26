@@ -1,5 +1,11 @@
+import Infocards from '@/components/Infocards';
+
 const DashboardPage = () => {
-  return <div>DashboardPage</div>;
+  return (
+    <>
+      <Infocards />
+    </>
+  );
 };
 
 export default DashboardPage;

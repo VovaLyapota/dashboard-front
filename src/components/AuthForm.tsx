@@ -1,11 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
+import { loginUser, registerUser } from '@/api/auth';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -18,7 +19,6 @@ import { Input } from '@/components/ui/input';
 import { ROUTES } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { ErrorResponse } from '@/interfaces/ErrorResponse';
-import { User } from '@/interfaces/User';
 import { cn } from '@/lib/utils';
 import { LoginPropsType, loginSchema } from '@/schemas/loginSchema';
 import useUserStore from '@/stores/userStore';
@@ -30,9 +30,11 @@ const changeButtonText = {
 
 const AuthForm = () => {
   const [auth, setAuth] = useState<'signup' | 'signin'>('signup');
+  const isSignup = auth === 'signup';
   const { toast } = useToast();
   const { setUser } = useUserStore();
   const navigate = useNavigate();
+
   const form = useForm<LoginPropsType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -40,17 +42,9 @@ const AuthForm = () => {
       password: '',
     },
   });
-
   const { mutate: authUser, isLoading } = useMutation({
     mutationKey: ['auth-user'],
-    mutationFn: async (credential: LoginPropsType) => {
-      const { data: user } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/users/${auth}`,
-        credential,
-      );
-
-      return user as User;
-    },
+    mutationFn: isSignup ? registerUser : loginUser,
     onSuccess: (data) => {
       setUser(data);
       navigate(ROUTES.DASHBOARD);
@@ -113,8 +107,8 @@ const AuthForm = () => {
           type="submit"
           disabled={isLoading}
         >
-          {!isLoading && (auth === 'signup' ? 'Sign up' : 'Log in')}
-          {isLoading && (auth === 'signup' ? 'Signing up' : 'Logging in')}
+          {!isLoading && (isSignup ? 'Sign up' : 'Log in')}
+          {isLoading && (isSignup ? 'Signing up' : 'Logging in')}
           <Loader2
             className={cn('w-5 h-5 animate-spin', {
               hidden: !isLoading,
