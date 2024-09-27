@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tseslint from 'typescript-eslint';
+import react from 'eslint-plugin-react';
 
 export default tseslint.config(
   {
@@ -13,6 +14,7 @@ export default tseslint.config(
       'public',
       'node_modules',
       'yarn.lock',
+      // 'src/components/ui',
     ],
   },
   {
@@ -36,17 +38,21 @@ export default tseslint.config(
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'no-console': 'error',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
   {
     // Set the react version
-    settings: { react: { version: '18.3.1' } },
+    settings: { react: { version: 'detect' } },
     plugins: {
       react,
     },
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
+      'react/prop-types': 'off',
     },
   },
   {
