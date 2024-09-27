@@ -16,24 +16,30 @@ const Infocards = () => {
         <>
           <li className="h-24 p-3 flex flex-col justify-between border border-gray-200 bg-white rounded-lg">
             <div className="flex gap-1 items-start">
-              <DbIcon className="w-4 h-4" />
+              <DbIcon className="w-4 h-4 md:w-5 md:h-5" />
               <p className="text-xs text-text-foreground">All products</p>
             </div>
-            <p className="text-text font-semibold">{dashboard.products}</p>
+            <p className="text-text font-semibold md:text-2xl">
+              {dashboard.products}
+            </p>
           </li>
           <li className="h-24 p-3 flex flex-col justify-between border border-gray-200 bg-white rounded-lg">
             <div className="flex gap-1 items-start">
-              <DbIcon className="w-4 h-4" />
+              <DbIcon className="w-4 h-4 md:w-5 md:h-5" />
               <p className="text-xs text-text-foreground">All suppliers</p>
             </div>
-            <p className="text-text font-semibold">{dashboard.suppliers}</p>
+            <p className="text-text font-semibold md:text-2xl">
+              {dashboard.suppliers}
+            </p>
           </li>
           <li className="h-24 p-3 flex flex-col justify-between border border-gray-200 bg-white rounded-lg">
             <div className="flex gap-1 items-start">
-              <CustomersIcon className="w-4 h-4" />
+              <CustomersIcon className="w-4 h-4 md:w-5 md:h-5" />
               <p className="text-xs text-text-foreground">All customers</p>
             </div>
-            <p className="text-text font-semibold">{dashboard.customers}</p>
+            <p className="text-text font-semibold md:text-2xl">
+              {dashboard.customers}
+            </p>
           </li>
         </>
       )}

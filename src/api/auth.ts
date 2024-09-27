@@ -31,3 +31,17 @@ export const logoutUser = async () => {
 
   return true;
 };
+
+export const refreshUser = async (oldToken: string) => {
+  const { data: user } = await axios.get<any, AxiosResponse<User>>(
+    '/users/whoami',
+    {
+      headers: {
+        Authorization: `Bearer ${oldToken}`,
+      },
+    },
+  );
+  setToken(user.token);
+
+  return user;
+};
