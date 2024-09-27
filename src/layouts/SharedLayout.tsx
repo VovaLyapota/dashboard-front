@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
-import { refreshUser } from '@/api/auth';
+import { refreshUser } from '@/api';
 import Logo from '@/assets/icons/second_logo-icon.svg';
 import LogoutButton from '@/components/LogoutButton';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';

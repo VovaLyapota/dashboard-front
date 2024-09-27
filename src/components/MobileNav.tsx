@@ -18,7 +18,7 @@ const MobileNav = ({
       {isVisible && (
         // overlay
         <motion.div
-          className="absolute h-screen w-screen bg-overlay"
+          className="absolute h-screen w-screen bg-overlay z-[999]"
           onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -27,7 +27,7 @@ const MobileNav = ({
         >
           {/* nav */}
           <motion.nav
-            className="h-screen w-20 md:w-[84px] bg-background p-5 z-10 flex flex-col items-center"
+            className="h-screen w-20 md:w-[84px] bg-background p-5 flex flex-col items-center"
             initial={{ translateX: -90 }}
             animate={{ translateX: 0 }}
             exit={{ translateX: -90, transition: { duration: 0.1 } }}

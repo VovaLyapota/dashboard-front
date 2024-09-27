@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { loginUser, registerUser } from '@/api/auth';
+import { loginUser, registerUser } from '@/api';
 import { Button } from '@/components/ui/button';
 import {
   Form,

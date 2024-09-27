@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { logoutUser } from '@/api/auth';
+import { logoutUser } from '@/api';
 import LogoutIcon from '@/assets/icons/exit-icon.svg';
 import { ROUTES } from '@/constants';
 import { cn } from '@/lib/utils';

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 
-import { getDashboard } from '@/api/dashboard';
+import { getDashboard } from '@/api';
 import CustomersIcon from '@/assets/icons/people-icon.svg';
 import DbIcon from '@/assets/icons/products-icon.svg';
 
