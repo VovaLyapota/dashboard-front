@@ -11,7 +11,7 @@ const Infocards = () => {
   });
 
   return (
-    <ul className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fit,240px)] gap-5 ">
+    <ul className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fit,240px)] gap-5 mb-5">
       {dashboard && (
         <>
           <li className="h-24 p-3 flex flex-col justify-between border border-gray-200 bg-white rounded-lg">

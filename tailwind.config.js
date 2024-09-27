@@ -62,6 +62,7 @@ export default {
         background: '#F7F8FA',
         overlay: '#1D1E214D',
         gray: { icon: '#DCDDDF' },
+        'table-bg': '#E7F1ED',
         text: {
           DEFAULT: '#1D1E21',
           foreground: '#1D1E2166',

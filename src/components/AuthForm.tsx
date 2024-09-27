@@ -75,6 +75,7 @@ const AuthForm = () => {
             <FormItem>
               <FormControl>
                 <Input
+                  type="email"
                   className="h-11 rounded-full bg-white"
                   placeholder="example@gmail.com"
                   {...field}

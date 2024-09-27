@@ -11,7 +11,7 @@ const DashboardPage = () => {
   });
 
   const tableHeads = {
-    name: 'Customer name',
+    name: 'Name',
     email: 'Email',
     spent: 'Spent',
     phone: 'Phone',

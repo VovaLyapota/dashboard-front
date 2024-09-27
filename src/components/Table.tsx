@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import {
   Table as TableContainer,
   TableBody,
@@ -12,7 +10,7 @@ import {
 type TableProps = {
   caption: string;
   heads: { [key: string]: string };
-  rows: Array<{ [key: string]: ReactNode }>;
+  rows: { [key: string]: any }[];
 };
 
 const Table = ({ caption, heads, rows }: TableProps) => {
@@ -23,7 +21,7 @@ const Table = ({ caption, heads, rows }: TableProps) => {
     <>
       <p
         aria-label="table caption"
-        className="border border-b-0 rounded-t-lg mt-10 p-2 font-semibold"
+        className="border border-table-bg border-b-0 rounded-t-lg flex items-center p-2 font-semibold bg-table-bg h-12"
       >
         {caption}
       </p>
