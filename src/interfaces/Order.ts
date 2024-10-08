@@ -13,5 +13,5 @@ export interface Order {
   quantity: number;
   amount: number;
   date: string;
-  status: `${OrderStatusEnum}`;
+  status: OrderStatusEnum;
 }
