@@ -77,6 +77,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
               <FormControl>
                 <Input
                   type="number"
+                  min={0}
                   className="max-w-24 h-11 rounded-full bg-white"
                   placeholder="Quantity"
                   {...field}
