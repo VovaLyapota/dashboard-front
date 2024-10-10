@@ -6,6 +6,7 @@ import FilterIcon from '@/assets/icons/filter-icon.svg';
 import useQueryParams from '@/hooks/useQueryParams';
 import { OrderStatusEnum } from '@/interfaces/Order';
 import { cn } from '@/lib/utils';
+import { OrderStatusStyles } from '@/pages/OrdersPage';
 import { GetOrdersPropsType, getOrdersSchema } from '@/schemas/getOrderSchema';
 
 import { Button } from '../ui/button';
@@ -27,7 +28,7 @@ import {
 } from '../ui/select';
 
 const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
-  const { getQueryParams, setQueryParams } = useQueryParams();
+  const { getQueryParams, setQueryParams, clearQueryParams } = useQueryParams();
   const form = useForm<GetOrdersPropsType>({
     resolver: zodResolver(getOrdersSchema),
     defaultValues: {
@@ -35,6 +36,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
       quantity: '',
       minAmount: '',
       maxAmount: '',
+      status: undefined,
       ...getQueryParams(),
     },
   });
@@ -133,20 +135,27 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           render={({ field }) => (
             <FormItem className="space-y-1 w-full max-w-40">
               <FormLabel>Status</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
-                  <SelectTrigger className="h-11 bg-white">
+                  <SelectTrigger className="h-11 rounded-xl bg-white">
                     <SelectValue placeholder="Choose status" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {Object.values(OrderStatusEnum).map((value) => (
+                  {Object.values(OrderStatusEnum).map((status) => (
                     <SelectItem
-                      key={value}
-                      value={value}
+                      key={status}
+                      value={status}
                       className="cursor-pointer"
                     >
-                      {value}
+                      <span
+                        className={cn(
+                          'font-medium text-sm bg-gray-200 text-gray-600 py-1 px-2 rounded-full',
+                          OrderStatusStyles[status],
+                        )}
+                      >
+                        {status}
+                      </span>
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -171,6 +180,16 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           )}
 
           {isSearching ? 'Filtering' : 'Filter'}
+        </Button>
+        <Button
+          className="max-w-28 h-11 w-full rounded-full flex gap-3"
+          type="button"
+          onClick={() => {
+            form.reset();
+            clearQueryParams();
+          }}
+        >
+          Clear
         </Button>
       </form>
     </Form>

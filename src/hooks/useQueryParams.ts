@@ -14,7 +14,11 @@ const useQueryParams = () => {
     setSearchParams(notEmptyParams);
   };
 
-  return { getQueryParams, setQueryParams };
+  const clearQueryParams = () => {
+    setSearchParams({});
+  };
+
+  return { getQueryParams, setQueryParams, clearQueryParams };
 };
 
 export default useQueryParams;
