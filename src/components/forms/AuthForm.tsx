@@ -104,14 +104,14 @@ const AuthForm = () => {
           )}
         />
         <Button
-          className="mt-10 h-11 w-full rounded-full flex gap-3"
+          className="mt-10 flex h-11 w-full gap-3 rounded-full"
           type="submit"
           disabled={isLoading}
         >
           {!isLoading && (isSignup ? 'Sign up' : 'Log in')}
           {isLoading && (isSignup ? 'Signing up' : 'Logging in')}
           <Loader2
-            className={cn('w-5 h-5 animate-spin', {
+            className={cn('h-5 w-5 animate-spin', {
               hidden: !isLoading,
             })}
           />

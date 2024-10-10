@@ -5,5 +5,10 @@
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "tailwindConfig": "./tailwind.config.js",
+  "tailwindFunctions": ["cn", "tw"],
+  "tailwindPreserveWhitespace": true,
+  "tailwindPreserveDuplicates": true,
+  "plugins": ["prettier-plugin-classnames", "prettier-plugin-tailwindcss"]
 }
