@@ -21,7 +21,7 @@ const navigateRoutes = [
 const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
   const { pathname } = useLocation();
   return (
-    <ul className="flex flex-col gap-4 mb-auto">
+    <ul className="mb-auto flex flex-col gap-4">
       {navigateRoutes.map((route) => {
         const isCurrentPath = pathname === route.path;
 
@@ -31,11 +31,11 @@ const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
               to={route.path}
               className={cn(
                 buttonVariants({ variant: 'secondary' }),
-                'w-10 h-10 md:w-11 md:h-11 p-0 rounded-full bg-white',
+                'h-10 w-10 rounded-full bg-white p-0 md:h-11 md:w-11',
               )}
             >
               <route.Icon
-                className={cn('w-4 h-4', {
+                className={cn('h-4 w-4', {
                   'fill-green-600': isCurrentPath,
                   'fill-gray-icon': !isCurrentPath,
                 })}

@@ -49,7 +49,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mt-5 mb-4 flex flex-wrap gap-3 items-end"
+        className="mb-4 mt-5 flex flex-wrap items-end gap-3"
       >
         <FormField
           control={form.control}
@@ -60,7 +60,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
               <FormControl>
                 <Input
                   type="text"
-                  className="max-w-56 h-11 rounded-full bg-white"
+                  className="h-11 max-w-56 rounded-full bg-white"
                   placeholder="Customer"
                   {...field}
                 />
@@ -80,7 +80,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                 <Input
                   type="number"
                   min={0}
-                  className="max-w-24 h-11 rounded-full bg-white"
+                  className="h-11 max-w-24 rounded-full bg-white"
                   placeholder="Quantity"
                   {...field}
                 />
@@ -101,7 +101,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   <Input
                     type="number"
                     placeholder="From"
-                    className="max-w-20 h-11 rounded-full rounded-r-none bg-white"
+                    className="h-11 max-w-20 rounded-full rounded-r-none bg-white"
                     {...field}
                   />
                 </FormControl>
@@ -119,7 +119,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   <Input
                     type="number"
                     placeholder="To"
-                    className="max-w-20 h-11 rounded-full rounded-l-none bg-white"
+                    className="h-11 max-w-20 rounded-full rounded-l-none bg-white"
                     {...field}
                   />
                 </FormControl>
@@ -133,7 +133,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           control={form.control}
           name="status"
           render={({ field }) => (
-            <FormItem className="space-y-1 w-full max-w-40">
+            <FormItem className="w-full max-w-40 space-y-1">
               <FormLabel>Status</FormLabel>
               <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
@@ -150,7 +150,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                     >
                       <span
                         className={cn(
-                          'font-medium text-sm bg-gray-200 text-gray-600 py-1 px-2 rounded-full',
+                          'rounded-full bg-gray-200 px-2 py-1 text-sm font-medium text-gray-600',
                           OrderStatusStyles[status],
                         )}
                       >
@@ -165,13 +165,13 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           )}
         />
         <Button
-          className="max-w-28 h-11 w-full rounded-full flex gap-3"
+          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
           type="submit"
           disabled={isSearching}
         >
           {isSearching ? (
             <Loader2
-              className={cn('w-5 h-5 animate-spin', {
+              className={cn('h-5 w-5 animate-spin', {
                 hidden: !isSearching,
               })}
             />
@@ -182,7 +182,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           {isSearching ? 'Filtering' : 'Filter'}
         </Button>
         <Button
-          className="max-w-28 h-11 w-full rounded-full flex gap-3"
+          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
           type="button"
           onClick={() => {
             form.reset();

@@ -20,10 +20,10 @@ const LogoutButton = ({ className }: { className?: string }) => {
 
   return (
     <Button
-      className={cn('w-10 h-10 p-0 rounded-full', className)}
+      className={cn('h-10 w-10 rounded-full p-0', className)}
       onClick={onLogout}
     >
-      <LogoutIcon className="w-4 h-4" />
+      <LogoutIcon className="h-4 w-4" />
     </Button>
   );
 };

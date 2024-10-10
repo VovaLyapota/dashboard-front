@@ -72,7 +72,6 @@ export default {
   },
   plugins: [
     require('tailwindcss-animate'),
-
     function ({ addBase }) {
       addBase({
         'input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button':

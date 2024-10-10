@@ -21,16 +21,17 @@ const Table = ({ caption, heads, rows }: TableProps) => {
     <>
       <p
         aria-label="table caption"
-        className="border border-table-bg border-b-0 rounded-t-lg flex items-center p-2 font-semibold bg-table-bg h-12"
+        className="flex h-12 items-center rounded-t-lg border border-b-0 border-table-bg
+          bg-table-bg p-2 font-semibold"
       >
         {caption}
       </p>
-      <div className="border rounded-b-lg overflow-hidden">
+      <div className="overflow-hidden rounded-b-lg border">
         <TableContainer>
           <TableHeader>
             <TableRow>
               {headValues.map((headValue, index) => (
-                <TableHead key={index} className="border-r last:border-r-0 p-2">
+                <TableHead key={index} className="border-r p-2 last:border-r-0">
                   {headValue}
                 </TableHead>
               ))}
@@ -40,7 +41,7 @@ const Table = ({ caption, heads, rows }: TableProps) => {
             {rows.map((row, rowIndex) => (
               <TableRow key={rowIndex}>
                 {headKeys.map((key) => (
-                  <TableCell key={key} className="border-r last:border-r-0 p-2">
+                  <TableCell key={key} className="border-r p-2 last:border-r-0">
                     {row[key]}
                   </TableCell>
                 ))}

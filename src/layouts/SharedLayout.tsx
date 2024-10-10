@@ -39,14 +39,17 @@ const SharedLayout = () => {
   return (
     !isLoading && (
       <>
-        <header className="flex gap-5 md:gap-4 items-center text-text px-5 py-4 md:px-8 xl:px-24 xl:py-7 border-b border-gray-200">
+        <header
+          className="flex items-center gap-5 border-b border-gray-200 px-5 py-4 text-text md:gap-4 md:px-8
+            xl:px-24 xl:py-7"
+        >
           <AlignJustify
-            className="w-8 h-8 lg:hidden"
+            className="h-8 w-8 lg:hidden"
             onClick={() => setIsVisible(true)}
           />
           <Link
             to={ROUTES.DASHBOARD}
-            className="flex items-center gap-5 md:gap-8 lg:gap-14 cursor-pointer"
+            className="flex cursor-pointer items-center gap-5 md:gap-8 lg:gap-14"
           >
             <Logo className="h-8 w-8 md:h-10 md:w-10" />
             <div>
@@ -59,11 +62,11 @@ const SharedLayout = () => {
               </p>
             </div>
           </Link>
-          <LogoutButton className="hidden lg:flex ml-auto" />
+          <LogoutButton className="ml-auto hidden lg:flex" />
         </header>
         <MobileNav isVisible={isVisible} onClose={() => setIsVisible(false)} />
-        <main className="text-text flex-grow overflow-hidden flex">
-          <nav className="hidden lg:flex w-20 border-r border-gray-200 py-10 px-4">
+        <main className="flex flex-grow overflow-hidden text-text">
+          <nav className="hidden w-20 border-r border-gray-200 px-4 py-10 lg:flex">
             <NavLinks />
           </nav>
           <MaxWidthWrapper className="py-5 md:px-8 lg:px-10">

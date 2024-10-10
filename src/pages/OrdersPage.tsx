@@ -41,7 +41,7 @@ const OrdersPage = () => {
       status: (
         <span
           className={cn(
-            'font-medium text-sm bg-gray-200 text-gray-600 py-1 px-2 rounded-xl',
+            'rounded-xl bg-gray-200 px-2 py-1 text-sm font-medium text-gray-600',
             OrderStatusStyles[order.status],
           )}
         >
