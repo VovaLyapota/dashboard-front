@@ -17,11 +17,11 @@ export const OrderStatusStyles = {
 };
 
 const OrdersPage = () => {
-  const { search: queryString } = useLocation();
   const { getQueryParams } = useQueryParams();
 
+  const { search } = useLocation();
   const { data: orders, isLoading } = useQuery({
-    queryKey: ['fetch-orders', queryString],
+    queryKey: ['fetch-orders', search],
     queryFn: () => getOrders(getQueryParams()),
     retry: false,
   });

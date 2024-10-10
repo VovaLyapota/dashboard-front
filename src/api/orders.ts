@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 import { Order } from '@/interfaces/Order';
-import { GetOrdersPropsType } from '@/schemas/getOrderSchema';
+import { GetOrdersPropsType } from '@/schemas';
 
 export const getOrders = async (params?: Partial<GetOrdersPropsType>) => {
   const { data } = await axios.get<any, AxiosResponse<Order[]>>(`/orders`, {

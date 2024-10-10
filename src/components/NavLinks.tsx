@@ -12,9 +12,9 @@ import { buttonVariants } from './ui/button';
 
 const navigateRoutes = [
   { path: ROUTES.DASHBOARD, Icon: DashboardIcon },
-  { path: ROUTES.CUSTOMERS, Icon: CustomersIcon },
   { path: ROUTES.ORDERS, Icon: OrdersIcon },
   { path: ROUTES.PRODUCTS, Icon: ProductsIcon },
+  { path: ROUTES.CUSTOMERS, Icon: CustomersIcon },
   { path: ROUTES.SUPPLIERS, Icon: SuppliersIcon },
 ];
 

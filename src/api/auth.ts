@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 import { User } from '@/interfaces/User';
-import { LoginPropsType } from '@/schemas/loginSchema';
+import { LoginPropsType } from '@/schemas';
 
 import { deleteToken, setToken } from './defaults';
 

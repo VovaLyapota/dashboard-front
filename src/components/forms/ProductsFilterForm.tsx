@@ -4,10 +4,9 @@ import { useForm } from 'react-hook-form';
 
 import FilterIcon from '@/assets/icons/filter-icon.svg';
 import useQueryParams from '@/hooks/useQueryParams';
-import { OrderStatusEnum } from '@/interfaces/Order';
+import { ProductCategoryEnum } from '@/interfaces/Product';
 import { cn } from '@/lib/utils';
-import { OrderStatusStyles } from '@/pages/OrdersPage';
-import { GetOrdersPropsType, getOrdersSchema } from '@/schemas';
+import { GetProductsPropsType,getProductsSchema } from '@/schemas';
 
 import LimitsInput from '../LimitsInput';
 import { Button } from '../ui/button';
@@ -28,21 +27,20 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
+const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
   const { getQueryParams, setQueryParams, clearQueryParams } = useQueryParams();
-  const form = useForm<GetOrdersPropsType>({
-    resolver: zodResolver(getOrdersSchema),
+  const form = useForm<GetProductsPropsType>({
+    resolver: zodResolver(getProductsSchema),
     defaultValues: {
-      customer: '',
-      quantity: '',
-      minAmount: '',
-      maxAmount: '',
-      status: undefined,
+      stock: '',
+      minPrice: '',
+      maxPrice: '',
+      category: undefined,
       ...getQueryParams(),
     },
   });
 
-  const onSubmit = async (values: GetOrdersPropsType) => {
+  const onSubmit = async (values: GetProductsPropsType) => {
     setQueryParams(values);
   };
 
@@ -54,35 +52,16 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
       >
         <FormField
           control={form.control}
-          name="customer"
+          name="stock"
           render={({ field }) => (
             <FormItem className="space-y-1">
-              <FormLabel>Customer name</FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  className="h-11 max-w-56 rounded-full bg-white"
-                  placeholder="Customer"
-                  {...field}
-                />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="quantity"
-          render={({ field }) => (
-            <FormItem className="space-y-1">
-              <FormLabel>Products</FormLabel>
+              <FormLabel>Stock</FormLabel>
               <FormControl>
                 <Input
                   type="number"
                   min={0}
                   className="h-11 max-w-24 rounded-full bg-white"
-                  placeholder="Quantity"
+                  placeholder="Stock"
                   {...field}
                 />
               </FormControl>
@@ -94,15 +73,15 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
         <LimitsInput
           control={form.control}
           label="Price"
-          leftName="minAmount"
-          rightName="maxAmount"
+          leftName="minPrice"
+          rightName="maxPrice"
         />
         <FormField
           control={form.control}
-          name="status"
+          name="category"
           render={({ field }) => (
             <FormItem className="w-full max-w-40 space-y-1">
-              <FormLabel>Status</FormLabel>
+              <FormLabel>Category</FormLabel>
               <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
                   <SelectTrigger className="h-11 rounded-xl bg-white">
@@ -110,20 +89,13 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {Object.values(OrderStatusEnum).map((status) => (
+                  {Object.values(ProductCategoryEnum).map((category) => (
                     <SelectItem
-                      key={status}
-                      value={status}
+                      key={category}
+                      value={category}
                       className="cursor-pointer"
                     >
-                      <span
-                        className={cn(
-                          'rounded-full bg-gray-200 px-2 py-1 text-sm font-medium text-gray-600',
-                          OrderStatusStyles[status],
-                        )}
-                      >
-                        {status}
-                      </span>
+                      {category}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -164,4 +136,4 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
   );
 };
 
-export default OrdersFilterForm;
+export default ProductsFilterForm;

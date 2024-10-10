@@ -6,6 +6,7 @@ import SharedLayout from './layouts/SharedLayout';
 import AuthPage from './pages/AuthPage';
 import DashboardPage from './pages/DashboardPage';
 import OrdersPage from './pages/OrdersPage';
+import ProductsPage from './pages/ProductsPage';
 import Providers from './providers';
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.PRODUCTS,
-        element: <DashboardPage />,
+        element: <ProductsPage />,
       },
       {
         path: ROUTES.SUPPLIERS,

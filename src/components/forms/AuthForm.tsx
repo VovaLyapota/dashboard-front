@@ -20,7 +20,7 @@ import { ROUTES } from '@/constants';
 import { useToast } from '@/hooks/use-toast';
 import { ErrorResponse } from '@/interfaces/ErrorResponse';
 import { cn } from '@/lib/utils';
-import { LoginPropsType, loginSchema } from '@/schemas/loginSchema';
+import { LoginPropsType, loginSchema } from '@/schemas';
 import useUserStore from '@/stores/userStore';
 
 const changeButtonText = {
