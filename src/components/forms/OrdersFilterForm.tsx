@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
+import FilterIcon from '@/assets/icons/filter-icon.svg';
 import useQueryParams from '@/hooks/useQueryParams';
 import { OrderStatusEnum } from '@/interfaces/Order';
 import { cn } from '@/lib/utils';
@@ -13,6 +14,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from '../ui/form';
 import { Input } from '../ui/input';
@@ -45,18 +47,19 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mt-10 flex flex-col gap-3 md:max-w-80 lg:mt-0 lg:w-80"
+        className="mt-5 mb-4 flex flex-wrap gap-3 items-end"
       >
         <FormField
           control={form.control}
           name="customer"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="space-y-1">
+              <FormLabel>Customer name</FormLabel>
               <FormControl>
                 <Input
                   type="text"
-                  className="h-11 rounded-full bg-white"
-                  placeholder="Customer name"
+                  className="max-w-56 h-11 rounded-full bg-white"
+                  placeholder="Customer"
                   {...field}
                 />
               </FormControl>
@@ -69,11 +72,12 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           control={form.control}
           name="quantity"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="space-y-1">
+              <FormLabel>Products</FormLabel>
               <FormControl>
                 <Input
                   type="number"
-                  className="h-11 rounded-full bg-white"
+                  className="max-w-24 h-11 rounded-full bg-white"
                   placeholder="Quantity"
                   {...field}
                 />
@@ -83,54 +87,64 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="minAmount"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  type="number"
-                  className="h-11 rounded-full bg-white"
-                  {...field}
-                />
-              </FormControl>
+        <div className="flex items-end">
+          <FormField
+            control={form.control}
+            name="minAmount"
+            render={({ field }) => (
+              <FormItem className="space-y-1">
+                <FormLabel>Price</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="From"
+                    className="max-w-20 h-11 rounded-full rounded-r-none bg-white"
+                    {...field}
+                  />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="maxAmount"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  type="number"
-                  className="h-11 rounded-full bg-white"
-                  {...field}
-                />
-              </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="maxAmount"
+            render={({ field }) => (
+              <FormItem className="space-y-1">
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="To"
+                    className="max-w-20 h-11 rounded-full rounded-l-none bg-white"
+                    {...field}
+                  />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={form.control}
           name="status"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="space-y-1 w-full max-w-40">
+              <FormLabel>Status</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
+                  <SelectTrigger className="h-11 bg-white">
+                    <SelectValue placeholder="Choose status" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
                   {Object.values(OrderStatusEnum).map((value) => (
-                    <SelectItem key={value} value={value}>
+                    <SelectItem
+                      key={value}
+                      value={value}
+                      className="cursor-pointer"
+                    >
                       {value}
                     </SelectItem>
                   ))}
@@ -141,16 +155,21 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           )}
         />
         <Button
-          className="mt-10 h-11 w-full rounded-full flex gap-3"
+          className="max-w-28 h-11 w-full rounded-full flex gap-3"
           type="submit"
           disabled={isSearching}
         >
-          Search
-          <Loader2
-            className={cn('w-5 h-5 animate-spin', {
-              hidden: !isSearching,
-            })}
-          />
+          {isSearching ? (
+            <Loader2
+              className={cn('w-5 h-5 animate-spin', {
+                hidden: !isSearching,
+              })}
+            />
+          ) : (
+            <FilterIcon />
+          )}
+
+          {isSearching ? 'Filtering' : 'Filter'}
         </Button>
       </form>
     </Form>
