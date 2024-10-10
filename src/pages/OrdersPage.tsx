@@ -23,6 +23,7 @@ const OrdersPage = () => {
   const { data: orders, isLoading } = useQuery({
     queryKey: ['fetch-orders', queryString],
     queryFn: () => getOrders(getQueryParams()),
+    retry: false,
   });
 
   const tableHeads = {
