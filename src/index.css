@@ -29,6 +29,11 @@ body {
   margin: 0; /* Remove any default margin */
 }
 
+#modal-root {
+  position: absolute;
+  top: 0;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -48,7 +48,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mr-auto flex flex-wrap items-end gap-3 lg:flex-nowrap"
+        className="mr-auto flex flex-wrap items-end gap-3 md:flex-nowrap"
       >
         <FormField
           control={form.control}
