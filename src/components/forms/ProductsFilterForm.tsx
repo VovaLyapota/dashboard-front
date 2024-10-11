@@ -6,7 +6,7 @@ import FilterIcon from '@/assets/icons/filter-icon.svg';
 import useQueryParams from '@/hooks/useQueryParams';
 import { ProductCategoryEnum } from '@/interfaces/Product';
 import { cn } from '@/lib/utils';
-import { GetProductsPropsType,getProductsSchema } from '@/schemas';
+import { GetProductsPropsType, getProductsSchema } from '@/schemas';
 
 import LimitsInput from '../LimitsInput';
 import { Button } from '../ui/button';
@@ -48,7 +48,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mb-4 mt-5 flex flex-wrap items-end gap-3"
+        className="mr-auto flex flex-wrap items-end gap-3 lg:flex-nowrap"
       >
         <FormField
           control={form.control}
@@ -85,7 +85,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
               <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
                   <SelectTrigger className="h-11 rounded-xl bg-white">
-                    <SelectValue placeholder="Choose status" />
+                    <SelectValue placeholder="Choose category" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -104,33 +104,35 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
             </FormItem>
           )}
         />
-        <Button
-          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
-          type="submit"
-          disabled={isSearching}
-        >
-          {isSearching ? (
-            <Loader2
-              className={cn('h-5 w-5 animate-spin', {
-                hidden: !isSearching,
-              })}
-            />
-          ) : (
-            <FilterIcon />
-          )}
+        <div className="flex gap-3">
+          <Button
+            className="flex h-11 w-28 gap-3 rounded-full"
+            type="submit"
+            disabled={isSearching}
+          >
+            {isSearching ? (
+              <Loader2
+                className={cn('h-5 w-5 animate-spin', {
+                  hidden: !isSearching,
+                })}
+              />
+            ) : (
+              <FilterIcon />
+            )}
 
-          {isSearching ? 'Filtering' : 'Filter'}
-        </Button>
-        <Button
-          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
-          type="button"
-          onClick={() => {
-            form.reset();
-            clearQueryParams();
-          }}
-        >
-          Clear
-        </Button>
+            {isSearching ? 'Filtering' : 'Filter'}
+          </Button>
+          <Button
+            className="flex h-11 w-28 gap-3 rounded-full"
+            type="button"
+            onClick={() => {
+              form.reset();
+              clearQueryParams();
+            }}
+          >
+            Clear
+          </Button>
+        </div>
       </form>
     </Form>
   );
