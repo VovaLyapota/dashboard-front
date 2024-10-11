@@ -54,7 +54,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
               <FormControl>
                 <Input
                   type="text"
-                  className="h-11 max-w-56 rounded-full bg-white"
+                  className="h-11 w-56 rounded-full bg-white"
                   placeholder="Customer"
                   {...field}
                 />
@@ -72,7 +72,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                 <Input
                   type="number"
                   min={0}
-                  className="h-11 max-w-24 rounded-full bg-white"
+                  className="h-11 w-24 rounded-full bg-white"
                   placeholder="Quantity"
                   {...field}
                 />
@@ -90,7 +90,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           control={form.control}
           name="status"
           render={({ field }) => (
-            <FormItem className="w-full max-w-40 space-y-1">
+            <FormItem className="w-40 space-y-1">
               <FormLabel>Status</FormLabel>
               <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
@@ -120,33 +120,36 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
             </FormItem>
           )}
         />
-        <Button
-          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
-          type="submit"
-          disabled={isSearching}
-        >
-          {isSearching ? (
-            <Loader2
-              className={cn('h-5 w-5 animate-spin', {
-                hidden: !isSearching,
-              })}
-            />
-          ) : (
-            <FilterIcon />
-          )}
+        <div className="flex gap-3">
+          {' '}
+          <Button
+            className="flex h-11 w-28 gap-3 rounded-full"
+            type="submit"
+            disabled={isSearching}
+          >
+            {isSearching ? (
+              <Loader2
+                className={cn('h-5 w-5 animate-spin', {
+                  hidden: !isSearching,
+                })}
+              />
+            ) : (
+              <FilterIcon />
+            )}
 
-          {isSearching ? 'Filtering' : 'Filter'}
-        </Button>
-        <Button
-          className="flex h-11 w-full max-w-28 gap-3 rounded-full"
-          type="button"
-          onClick={() => {
-            form.reset();
-            clearQueryParams();
-          }}
-        >
-          Clear
-        </Button>
+            {isSearching ? 'Filtering' : 'Filter'}
+          </Button>
+          <Button
+            className="flex h-11 w-28 gap-3 rounded-full"
+            type="button"
+            onClick={() => {
+              form.reset();
+              clearQueryParams();
+            }}
+          >
+            Clear
+          </Button>
+        </div>
       </form>
     </Form>
   );

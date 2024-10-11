@@ -34,7 +34,7 @@ const LimitsInput = ({
               <Input
                 type="number"
                 placeholder="From"
-                className="h-11 max-w-20 rounded-full rounded-r-none bg-white"
+                className="h-11 w-20 rounded-full rounded-r-none bg-white"
                 {...field}
               />
             </FormControl>
@@ -52,7 +52,7 @@ const LimitsInput = ({
               <Input
                 type="number"
                 placeholder="To"
-                className="h-11 max-w-20 rounded-full rounded-l-none bg-white"
+                className="h-11 w-20 rounded-full rounded-l-none bg-white"
                 {...field}
               />
             </FormControl>

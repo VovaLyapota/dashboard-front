@@ -53,7 +53,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                 <Input
                   type="number"
                   min={0}
-                  className="h-11 max-w-24 rounded-full bg-white"
+                  className="h-11 w-24 rounded-full bg-white"
                   placeholder="Stock"
                   {...field}
                 />
@@ -71,7 +71,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           control={form.control}
           name="category"
           render={({ field }) => (
-            <FormItem className="w-full max-w-40 space-y-1">
+            <FormItem className="w-40 space-y-1">
               <FormLabel>Category</FormLabel>
               <Select onValueChange={field.onChange} value={field.value || ''}>
                 <FormControl>
