@@ -10,7 +10,7 @@ const AddProductModal = ({
 }) => {
   return (
     <ModalOverlay isVisible={isVisible} onClose={onClose}>
-      <ModalBody onClose={onClose} title="Add product">
+      <ModalBody onClose={onClose} title="Add product" className="h-52 w-52">
         modal
       </ModalBody>
     </ModalOverlay>
