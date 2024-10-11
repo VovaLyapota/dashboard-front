@@ -1,3 +1,4 @@
+import ModalBody from './ModalBody';
 import ModalOverlay from './ModalOverlay';
 
 const AddProductModal = ({
@@ -9,7 +10,9 @@ const AddProductModal = ({
 }) => {
   return (
     <ModalOverlay isVisible={isVisible} onClose={onClose}>
-      <div>modal</div>
+      <ModalBody onClose={onClose} title="Add product">
+        modal
+      </ModalBody>
     </ModalOverlay>
   );
 };

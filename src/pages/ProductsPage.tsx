@@ -40,7 +40,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      <div className="my-5 flex flex-wrap items-end gap-3">
+      <div className="mb-5 flex flex-wrap items-end gap-3">
         <ProductsFilterForm isSearching={isLoading} />
         <Button
           className="h-11 w-11 rounded-full p-0"

@@ -10,14 +10,7 @@ import { GetProductsPropsType, getProductsSchema } from '@/schemas';
 
 import LimitsInput from '../LimitsInput';
 import { Button } from '../ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '../ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
 import { Input } from '../ui/input';
 import {
   Select,
@@ -65,8 +58,6 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   {...field}
                 />
               </FormControl>
-
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -100,7 +91,6 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   ))}
                 </SelectContent>
               </Select>
-              <FormMessage />
             </FormItem>
           )}
         />

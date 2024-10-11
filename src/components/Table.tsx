@@ -19,13 +19,13 @@ const Table = ({ caption, heads, rows }: TableProps) => {
 
   return (
     <>
-      <p
+      <h2
         aria-label="table caption"
         className="flex h-12 items-center rounded-t-lg border border-b-0 border-table-bg
           bg-table-bg p-2 font-semibold"
       >
         {caption}
-      </p>
+      </h2>
       <div className="overflow-hidden rounded-b-lg border">
         <TableContainer>
           <TableHeader>

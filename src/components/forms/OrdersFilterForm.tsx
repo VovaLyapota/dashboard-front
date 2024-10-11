@@ -11,14 +11,7 @@ import { GetOrdersPropsType, getOrdersSchema } from '@/schemas';
 
 import LimitsInput from '../LimitsInput';
 import { Button } from '../ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '../ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
 import { Input } from '../ui/input';
 import {
   Select,
@@ -50,7 +43,7 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mb-4 mt-5 flex flex-wrap items-end gap-3"
+        className="mb-4 flex flex-wrap items-end gap-3"
       >
         <FormField
           control={form.control}
@@ -66,8 +59,6 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   {...field}
                 />
               </FormControl>
-
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -86,8 +77,6 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   {...field}
                 />
               </FormControl>
-
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -128,7 +117,6 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
                   ))}
                 </SelectContent>
               </Select>
-              <FormMessage />
             </FormItem>
           )}
         />

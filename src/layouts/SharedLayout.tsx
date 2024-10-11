@@ -40,8 +40,8 @@ const SharedLayout = () => {
     !isLoading && (
       <>
         <header
-          className="flex items-center gap-5 border-b border-gray-200 px-5 py-4 text-text md:gap-4 md:px-8
-            xl:px-24 xl:py-7"
+          className="flex items-center gap-5 border-b border-gray-200 px-5 py-2 text-text md:gap-4 md:px-8
+            xl:px-24 xl:py-4"
         >
           <AlignJustify
             className="h-8 w-8 lg:hidden"
