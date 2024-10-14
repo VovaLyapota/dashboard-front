@@ -121,18 +121,13 @@ const OrdersFilterForm = ({ isSearching }: { isSearching: boolean }) => {
           )}
         />
         <div className="flex gap-3">
-          {' '}
           <Button
             className="flex h-11 w-28 gap-3 rounded-full"
             type="submit"
             disabled={isSearching}
           >
             {isSearching ? (
-              <Loader2
-                className={cn('h-5 w-5 animate-spin', {
-                  hidden: !isSearching,
-                })}
-              />
+              <Loader2 className="h-5 w-5 animate-spin" />
             ) : (
               <FilterIcon />
             )}

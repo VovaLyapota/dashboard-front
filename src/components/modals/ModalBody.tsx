@@ -31,7 +31,7 @@ const ModalBody = ({
         onClick={(e) => e.stopPropagation()}
       >
         {title && (
-          <h3 className="text-xl font-semibold text-text md:text-2xl">
+          <h3 className="mb-5 text-xl font-semibold text-text md:mb-10 md:text-2xl">
             {title}
           </h3>
         )}

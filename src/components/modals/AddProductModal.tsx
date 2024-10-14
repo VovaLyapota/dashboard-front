@@ -1,3 +1,4 @@
+import AddProductForm from '../forms/AddProductForm';
 import ModalBody from './ModalBody';
 import ModalOverlay from './ModalOverlay';
 
@@ -10,8 +11,12 @@ const AddProductModal = ({
 }) => {
   return (
     <ModalOverlay isVisible={isVisible} onClose={onClose}>
-      <ModalBody onClose={onClose} title="Add product" className="h-52 w-52">
-        modal
+      <ModalBody
+        onClose={onClose}
+        title="Add new product"
+        className="h-[480px] w-72"
+      >
+        <AddProductForm onClose={onClose} />
       </ModalBody>
     </ModalOverlay>
   );

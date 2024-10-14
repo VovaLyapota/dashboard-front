@@ -101,11 +101,7 @@ const ProductsFilterForm = ({ isSearching }: { isSearching: boolean }) => {
             disabled={isSearching}
           >
             {isSearching ? (
-              <Loader2
-                className={cn('h-5 w-5 animate-spin', {
-                  hidden: !isSearching,
-                })}
-              />
+              <Loader2 className="h-5 w-5 animate-spin" />
             ) : (
               <FilterIcon />
             )}
