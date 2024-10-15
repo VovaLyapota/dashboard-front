@@ -5,7 +5,7 @@ import { ProductCategoryEnum } from '@/interfaces/Product';
 import { numberType } from './getOrdersSchema';
 
 export const createProductSchema = z.object({
-  photo: z.string().nullable(),
+  photo: z.string().optional(),
   name: z.string(),
   stock: numberType,
   price: numberType,

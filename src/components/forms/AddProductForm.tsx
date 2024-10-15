@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
 import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
@@ -13,8 +14,9 @@ import {
   createProductSchema,
 } from '@/schemas/createProductSchema';
 
+import { MultipleSelect } from '../MultipleSelect';
 import { Button } from '../ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
+import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { Input } from '../ui/input';
 import {
   Select,
@@ -24,8 +26,19 @@ import {
   SelectValue,
 } from '../ui/select';
 
+const options = [
+  { label: 'name1', value: 1 },
+  { label: 'name2', value: 2 },
+  { label: 'name3', value: 3 },
+  { label: 'name4', value: 4 },
+  { label: 'name5', value: 5 },
+  { label: 'name6', value: 6 },
+  { label: 'name7', value: 7 },
+];
+
 const AddProductForm = ({ onClose }: { onClose: () => void }) => {
   const { toast } = useToast();
+  const [suppliersIds, setSuppliersIds] = useState<number[]>([]);
 
   const form = useForm<CreateProductPropsType>({
     resolver: zodResolver(createProductSchema),
@@ -54,8 +67,13 @@ const AddProductForm = ({ onClose }: { onClose: () => void }) => {
     },
   });
 
-  const onSubmit = async (values: CreateProductPropsType) => {
-    setProduct(values);
+  const onSubmit = async ({
+    price,
+    stock,
+    ...rest
+  }: CreateProductPropsType) => {
+    form.setValue('suppliers', suppliersIds);
+    setProduct({ ...rest, price: +price, stock: +stock });
   };
 
   return (
@@ -139,6 +157,11 @@ const AddProductForm = ({ onClose }: { onClose: () => void }) => {
               </Select>
             </FormItem>
           )}
+        />
+        <MultipleSelect
+          options={options}
+          values={suppliersIds}
+          setValue={setSuppliersIds}
         />
         <div className="flex gap-3">
           <Button
