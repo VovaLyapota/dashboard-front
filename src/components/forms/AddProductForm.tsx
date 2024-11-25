@@ -55,7 +55,7 @@ const AddProductForm = ({ onClose }: { onClose: () => void }) => {
     mutationKey: ['create-product'],
     mutationFn: createProduct,
     onSuccess: () => {
-      //   console.log('success!!!');
+      //   console.log('check commit!!!');
       onClose();
     },
     onError: ({ response }: AxiosError<ErrorResponse>) => {
